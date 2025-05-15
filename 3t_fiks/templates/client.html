@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>TicTacToe</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+<body class="d-flex flex-column align-items-center p-4">
+  <h1 class="mb-4">TicTacToe</h1>
+
+  <div id="joinDiv" class="w-50">
+    <input id="room" class="form-control mb-2" placeholder="ID Room">
+    <input id="code" class="form-control mb-2" placeholder="Kode Anda">
+    <button id="joinBtn" class="btn btn-success w-100">Gabung Game</button>
+  </div>
+
+  <div id="game" style="display:none; width:380px;" class="text-center">
+
+    <div id="status" class="alert alert-info"></div>
+
+    <div class="d-grid gap-2 mb-3"
+         style="grid-template-columns:repeat(3,1fr);">
+      <button class="cell btn btn-light" data-index="0"
+              style="height:100px; font-size:2rem;"></button>
+      <button class="cell btn btn-light" data-index="1"
+              style="height:100px; font-size:2rem;"></button>
+      <button class="cell btn btn-light" data-index="2"
+              style="height:100px; font-size:2rem;"></button>
+      <button class="cell btn btn-light" data-index="3"
+              style="height:100px; font-size:2rem;"></button>
+      <button class="cell btn btn-light" data-index="4"
+              style="height:100px; font-size:2rem;"></button>
+      <button class="cell btn btn-light" data-index="5"
+              style="height:100px; font-size:2rem;"></button>
+      <button class="cell btn btn-light" data-index="6"
+              style="height:100px; font-size:2rem;"></button>
+      <button class="cell btn btn-light" data-index="7"
+              style="height:100px; font-size:2rem;"></button>
+      <button class="cell btn btn-light" data-index="8"
+              style="height:100px; font-size:2rem;"></button>
+    </div>
+
+    <div class="mb-2">
+      <button id="surrenderBtn" class="btn btn-danger me-2">Surrender</button>
+      <button id="pingBtn" class="btn btn-secondary">Ping</button>
+    </div>
+
+    <div class="mb-2">
+      Latency: <span id="latency">-</span> ms
+    </div>
+    <div class="mb-2">
+      Last Pong: <span id="lastPong">-</span>
+    </div>
+
+    <div id="adminBroadcast" class="alert alert-warning mt-2" style="display:none;"></div>
+
+    <hr>
+    <div><strong>Chat Room</strong></div>
+    <div id="chatBox"
+         style="height:100px; width:100%; overflow:auto; border:1px solid #ccc; padding:5px;">
+    </div>
+    <div class="input-group mt-2">
+      <input id="chatInput" class="form-control" placeholder="Ketik pesan...">
+      <button id="chatSendBtn" class="btn btn-primary">Kirim</button>
+    </div>
+
+  </div>
+
+  <!-- Modal untuk hasil -->
+  <div class="modal fade" id="winnerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body text-center">
+          <h2 id="winnerText"></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.socket.io/4.5.3/socket.io.min.js"></script>
+  <script src="/static/client.js"></script>
+</body>
+</html>
